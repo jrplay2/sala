@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sala de Aula Virtual</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: red;
+            text-align: center;
+        }
+        .classroom-content {
+            display: none;
+        }
+        .classroom-content h2 {
+            color: #007bff;
+        }
+        .classroom-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .classroom-content li {
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div id="login-form">
+            <h1>Login da Sala de Aula</h1>
+            <input type="text" id="username" placeholder="Usuário" required>
+            <input type="password" id="password" placeholder="Senha" required>
+            <button onclick="login()">Entrar</button>
+            <p id="error-message" class="error"></p>
+        </div>
+        <div id="classroom-content" class="classroom-content">
+            <h2>Bem-vindo à Sala de Aula Virtual, <span id="user-name"></span>!</h2>
+            <h3>Aulas de Hoje:</h3>
+            <ul>
+                <li>Matemática - 10:00</li>
+                <li>Ciências - 14:00</li>
+                <li>História - 16:00</li>
+            </ul>
+            <h3>Tarefas Pendentes:</h3>
+            <ul>
+                <li>Exercícios de Álgebra</li>
+                <li>Relatório de Experimento</li>
+                <li>Leitura de Capítulo</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function login() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+            var errorMessage = document.getElementById('error-message');
+            
+            if (username === 'jrplay' && password === '123') {
+                document.getElementById('login-form').style.display = 'none';
+                document.getElementById('classroom-content').style.display = 'block';
+                document.getElementById('user-name').textContent = username;
+            } else {
+                errorMessage.textContent = 'Usuário não existe ou senha incorreta.';
+            }
+        }
+    </script>
+</body>
+</html>
